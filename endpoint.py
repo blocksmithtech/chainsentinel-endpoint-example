@@ -7,6 +7,7 @@ def endpoint():
         Receives POST requests and handles the required authentication
         Sends received data to the _handle_data function
         Returns 200 - OK in case of success and 500 - ERROR otherwise
+        ChainSentinel docs can be found at: https://chainsentinel.co/dashboard/docs/webhooks
     """
     if request.method == 'GET':
         return 'Simple Endpoint for <a href="https://chainsentinel.co">Chain Sentinel</a>'
