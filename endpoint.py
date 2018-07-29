@@ -15,13 +15,16 @@ def endpoint():
     try:
         data = request.get_json()
         if 'permission' in data:
+            print("Authentication request received")
             auth_reply = {
                 'permission': 'given',
                 'nonce': data['nonce']
             }
             response = make_response(jsonify(auth_reply), 200)
+            print("Replying to authentication request...")
             return response
         else:
+            print("Smart Contract data received: ")
             _handle_data(data)
             return make_response("OK", 200)
 
