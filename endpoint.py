@@ -34,39 +34,39 @@ def endpoint():
 
 
 def _handle_data(data):
-    """This function exemplifies how received data can be handled
-    Received data is structured in the following way:
-    {
-          "event_type": "{value}",
-          "contract_hash": "{value}",
-          "tx_hash": "{value}",
-          "block_number": 123,
-          "event_payload":  {
-            "type": "Array",
-            "value": [
-              {
-                "type": "ByteArray",
-                "value": "7472616e73666572"
+    """ This function exemplifies how received data can be handled
+        Received data is structured in the following way:
+        {
+              "event_type": "{value}",
+              "contract_hash": "{value}",
+              "tx_hash": "{value}",
+              "block_number": 123,
+              "event_payload":  {
+                "type": "Array",
+                "value": [
+                  {
+                    "type": "ByteArray",
+                    "value": "7472616e73666572"
+                  },
+                  {
+                    "type": "Integer",
+                    "value": 1
+                  },
+                  {
+                    "type": "String",
+                    "value": "a given string"
+                  },
+                  {
+                    "type": "Boolean",
+                    "value": "true"
+                  }
+                ]
               },
-              {
-                "type": "Integer",
-                "value": 1
-              },
-              {
-                "type": "String",
-                "value": "a given string"
-              },
-              {
-                "type": "Boolean",
-                "value": "true"
-              }
-            ]
-          },
-          "execution_success": True,
-          "test_mode": "{value}",
-          "extra": {'network': "{value}"}
-        }
-    DOCS: https://chainsentinel.co/dashboard/docs/webhooks
+              "execution_success": True,
+              "test_mode": "{value}",
+              "extra": {'network': "{value}"}
+            }
+        DOCS: https://chainsentinel.co/dashboard/docs/webhooks
     """
     contract_hash = data['contract_hash']
     event_type = data['event_type']
@@ -88,5 +88,5 @@ def _handle_data(data):
     print(data)
 
 def _decode(hex):
-    """Decodes an hex encoded string"""
+    """ Decodes an hex encoded string """
     return bytearray.fromhex(hex).decode()
